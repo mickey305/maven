@@ -1,5 +1,5 @@
 # My Maven Library
-[![Build Status](https://travis-ci.org/mickey305/maven.svg)](https://travis-ci.org/mickey305/maven)  
+[![Build Status](https://travis-ci.org/mickey305/maven.svg?branch=gh-pages)](https://travis-ci.org/mickey305/maven)  
 
 This is the Maven Project, built by IntelliJ IDEA etc.
 

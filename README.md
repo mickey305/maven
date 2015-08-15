@@ -19,6 +19,7 @@ repositories {
 
 ### Compile library
 
+e.g.
 ```
 dependencies {
     compile 'com.mickey305:common-library:0.0.1'
@@ -33,13 +34,23 @@ dependencies {
 # History
 
 ### common-library
+##### 0.0.2
+* Bugfix - RingBuffer class.
+* JSON analysis libs added.
+* gradle code: `compile 'com.mickey305:common-library:0.0.2'`
+* [detail][common-0.0.2]
+
 ##### 0.0.1
 * First release.
 * RingBuffer class added.
 * gradle code: `compile 'com.mickey305:common-library:0.0.1'`
+* [detail][common-0.0.1]
 
 
 
 [home]: http://mickey305.github.io/maven/
 [gradle-user-guide]: http://www.gradle.org/docs/current/userguide/userguide.html
 [gradle-dependency-management-guide]: http://www.gradle.org/docs/current/userguide/dependency_management.html
+
+[common-0.0.1]: projects/common-library/detail-markdown/0.0.1.md
+[common-0.0.2]: projects/common-library/detail-markdown/0.0.2.md

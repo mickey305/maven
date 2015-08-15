@@ -23,7 +23,6 @@
  */
 package com.mickey305.commons.analysis.json;
 
-import com.sun.istack.internal.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -112,7 +111,7 @@ public class JSONTokenUtil {
      * @param seed
      * @throws Exception
      */
-    protected static void checkStringInfo(@NotNull String seed) throws Exception {
+    protected static void checkStringInfo(String seed) throws Exception {
         ArrayList<Boolean> isExceptionList = new ArrayList<>();
         try {
             new JSONObject(seed);

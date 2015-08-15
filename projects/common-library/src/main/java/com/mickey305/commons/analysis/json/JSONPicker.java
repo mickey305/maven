@@ -23,7 +23,6 @@
  */
 package com.mickey305.commons.analysis.json;
 
-import com.sun.istack.internal.NotNull;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -67,7 +66,7 @@ public class JSONPicker<T> implements Cloneable {
      *
      * @param inst is JSONObject or JSONArray
      */
-    public synchronized void buildTokenList(@NotNull final T inst) {
+    public synchronized void buildTokenList(final T inst) {
         if(inst instanceof JSONObject) {
             JSONTokenListBuilder.build((JSONObject) inst, this.tokenList);
         } else if(inst instanceof JSONArray) {
@@ -346,7 +345,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param key
      * @return
      */
-    public List<JSONToken> getValues(@NotNull final String key) {
+    public List<JSONToken> getValues(final String key) {
         LinkedList<JSONToken> tokenList = (LinkedList<JSONToken>) this.tokenList.clone();
         return this.getValues(key, tokenList);
     }
@@ -356,7 +355,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param keyList
      * @return
      */
-    public List<JSONToken> getValues(@NotNull final LinkedList<String> keyList) {
+    public List<JSONToken> getValues(final LinkedList<String> keyList) {
         LinkedList<JSONToken> jsonValueList = (LinkedList<JSONToken>) this.getValues(keyList.remove());
         while (!keyList.isEmpty()) {
             String key = keyList.remove();
@@ -377,7 +376,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param keys
      * @return
      */
-    public List<JSONToken> getValues(@NotNull final String... keys) {
+    public List<JSONToken> getValues(final String... keys) {
         LinkedList<String> keyList = new LinkedList<>();
         for(String key: keys) {
             keyList.add(key);
@@ -404,7 +403,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param key
      * @return
      */
-    public boolean isExistKey(@NotNull final String key) {
+    public boolean isExistKey(final String key) {
         for(JSONToken token: this.tokenList) {
             if(token.getType() == JSONToken.TYPE.FIELD_NAME && token.equals(key)) {
                 return true;
@@ -418,7 +417,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param keys
      * @return
      */
-    public boolean isExistAllKeys(@NotNull final LinkedList<String> keys) {
+    public boolean isExistAllKeys(final LinkedList<String> keys) {
         final int size = keys.size();
         int count = 0;
         for(String key: keys) {
@@ -432,7 +431,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param keys
      * @return
      */
-    public boolean isExistAllKeys(@NotNull final String... keys) {
+    public boolean isExistAllKeys(final String... keys) {
         LinkedList<String> keyList = new LinkedList<>();
         for(String key: keys) {
             keyList.add(key);
@@ -445,7 +444,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param key
      * @return
      */
-    public List<JSONToken> searchValues(@NotNull final String key) {
+    public List<JSONToken> searchValues(final String key) {
         return this.getValues(key);
     }
 
@@ -454,7 +453,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param keyList
      * @return
      */
-    public List<JSONToken> searchValues(@NotNull final LinkedList<String> keyList) {
+    public List<JSONToken> searchValues(final LinkedList<String> keyList) {
         return this.getValues(keyList);
     }
 
@@ -463,7 +462,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param keys
      * @return
      */
-    public List<JSONToken> searchValues(@NotNull final String... keys) {
+    public List<JSONToken> searchValues(final String... keys) {
         return this.getValues(keys);
     }
 

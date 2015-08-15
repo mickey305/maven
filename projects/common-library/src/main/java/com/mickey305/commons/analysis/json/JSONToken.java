@@ -23,7 +23,6 @@
  */
 package com.mickey305.commons.analysis.json;
 
-import com.sun.istack.internal.NotNull;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -43,7 +42,7 @@ public class JSONToken implements Cloneable {
     public class Value implements Cloneable {
         private String s;
 
-        public Value(@NotNull String s) {
+        public Value(String s) {
             setS(s);
         }
 

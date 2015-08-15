@@ -35,12 +35,14 @@ dependencies {
 
 ### common-library
 ##### 0.0.2
+* java version - jdk8.
 * Bugfix - RingBuffer class.
 * JSON analysis libs added.
 * gradle code: `compile 'com.mickey305:common-library:0.0.2'`
 * [detail][common-0.0.2]
 
 ##### 0.0.1
+* java version  - higher than jdk7.
 * First release.
 * RingBuffer class added.
 * gradle code: `compile 'com.mickey305:common-library:0.0.1'`

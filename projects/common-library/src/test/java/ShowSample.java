@@ -34,8 +34,8 @@ public class ShowSample {
 //        JSONObject json = new JSONObject(jsonString);
 
         JSONPicker picker = new JSONPicker(json);
-        LinkedList<JSONToken> list = (LinkedList) picker.getValues("name", "first");
-//        LinkedList<JSONToken> list = (LinkedList<JSONToken>) picker.getAllValueHashList();
+//        LinkedList<JSONToken> list = (LinkedList) picker.getValues("name", "first");
+        LinkedList<JSONToken> list = (LinkedList<JSONToken>) picker.getAllValueHashList();
         Log.d(TAG, "list size - "+list.size());
         for(JSONToken token: list) Log.d(TAG, token.getValue().to_s() + "\t" + token.getType().toString());
 

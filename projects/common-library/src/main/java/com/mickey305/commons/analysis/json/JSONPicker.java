@@ -111,18 +111,18 @@ public class JSONPicker<T> implements Cloneable {
             if(embeddedIndex == 0) { continue; }
             if(token.getType() == JSONToken.TYPE.START_OBJECT) {
                 try {
-                    this.generateEmbeddedValue(
-                            JSONToken.TYPE.VALUE_JSON_OBJECT, tokenList, embeddedIndex, outValueList
-                    );
+                    JSONToken value = this.generateEmbeddedValue(
+                            JSONToken.TYPE.VALUE_JSON_OBJECT, tokenList, embeddedIndex);
+                    outValueList.add(value);
                     embeddedIndex = JSONTokenListUtil.getPairSymbolPoint(tokenList, embeddedIndex);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else if(token.getType() == JSONToken.TYPE.START_ARRAY) {
                 try {
-                    this.generateEmbeddedValue(
-                            JSONToken.TYPE.VALUE_JSON_ARRAY, tokenList, embeddedIndex, outValueList
-                    );
+                    JSONToken value = this.generateEmbeddedValue(
+                            JSONToken.TYPE.VALUE_JSON_ARRAY, tokenList, embeddedIndex);
+                    outValueList.add(value);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -317,13 +317,15 @@ public class JSONPicker<T> implements Cloneable {
                     outList.add(token);
                 } else if(token.getType() == JSONToken.TYPE.START_OBJECT) {
                     try {
-                        this.generateEmbeddedValue(JSONToken.TYPE.VALUE_JSON_OBJECT, tokenList, 0, outList);
+                        JSONToken value = this.generateEmbeddedValue(JSONToken.TYPE.VALUE_JSON_OBJECT, tokenList, 0);
+                        outList.add(value);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 } else if(token.getType() == JSONToken.TYPE.START_ARRAY) {
                     try {
-                        this.generateEmbeddedValue(JSONToken.TYPE.VALUE_JSON_ARRAY, tokenList, 0, outList);
+                        JSONToken value = this.generateEmbeddedValue(JSONToken.TYPE.VALUE_JSON_ARRAY, tokenList, 0);
+                        outList.add(value);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -480,15 +482,13 @@ public class JSONPicker<T> implements Cloneable {
      * @param embeddedType is JSON_ARRAY or JSON_OBJECT {@link com.mickey305.commons.analysis.json.JSONToken.TYPE}
      * @param tokenList is JSON Token List
      * @param tokenListStartPoint is START Embedded-Symbol Index
-     * @param out is Embedded JSONToken(Embedded Value) List
-     * @return the same info with out
+     * @return Embedded JSONToken(Embedded Value)
      * @throws Exception
      */
-    protected static LinkedList<JSONToken> generateEmbeddedValue(
+    protected JSONToken generateEmbeddedValue(
             JSONToken.TYPE embeddedType,
             final LinkedList<JSONToken> tokenList,
-            final int tokenListStartPoint,
-            LinkedList<JSONToken> out ) throws Exception
+            final int tokenListStartPoint) throws Exception
     {
         if(!(embeddedType == JSONToken.TYPE.VALUE_JSON_ARRAY ||
                 embeddedType == JSONToken.TYPE.VALUE_JSON_OBJECT))
@@ -552,8 +552,7 @@ public class JSONPicker<T> implements Cloneable {
         if(value.isEmpty()) {
             throw new Exception("Not Found: Embedded-Value is empty. please check signature of this method");
         }
-        out.add(new JSONToken(embeddedType, value));
-        return (out);
+        return new JSONToken(embeddedType, value);
     }
 
 }

@@ -29,7 +29,9 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.stream.Collectors;
 
 /**
@@ -101,7 +103,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param tokenList is JSON Token List
      * @return Value Token List
      */
-    protected List<JSONToken> createNonKeyValueList(LinkedList<JSONToken> tokenList) {
+    protected LinkedList<JSONToken> createNonKeyValueList(LinkedList<JSONToken> tokenList) {
         LinkedList<JSONToken> outValueList = new LinkedList<>();
         int embeddedIndex = 0;
         final int size = tokenList.size();
@@ -144,7 +146,7 @@ public class JSONPicker<T> implements Cloneable {
      *
      * @return All Key List contained in JSONObject or JSONArray
      */
-    public List<JSONToken> getAllKeyList() {
+    public LinkedList<JSONToken> getAllKeyList() {
         LinkedList<JSONToken> keyList = new LinkedList<>();
         this.tokenList.stream().filter(
                 token -> token.getType() == JSONToken.TYPE.FIELD_NAME
@@ -156,7 +158,7 @@ public class JSONPicker<T> implements Cloneable {
      *
      * @return All Key Hashed List
      */
-    public List<JSONToken> getAllKeyHashList() {
+    public LinkedList<JSONToken> getAllKeyHashList() {
         LinkedList<JSONToken> keyHashList = new LinkedList<>();
         HashSet<String> hashSet = this.getAllKeyHashSet();
         Iterator<String> iterator = hashSet.iterator();
@@ -172,7 +174,7 @@ public class JSONPicker<T> implements Cloneable {
      * @return All Key HashSet
      */
     public HashSet<String> getAllKeyHashSet() {
-        LinkedList<JSONToken> allKeyList = (LinkedList<JSONToken>) this.getAllKeyList();
+        LinkedList<JSONToken> allKeyList = this.getAllKeyList();
         LinkedList<String> strAllKeyList = new LinkedList<>();
         while (!allKeyList.isEmpty()) {
             strAllKeyList.push(allKeyList.remove().getValue().to_s());
@@ -186,10 +188,10 @@ public class JSONPicker<T> implements Cloneable {
      *
      * @return All Value List contained in JSONObject or JSONArray
      */
-    public List<JSONToken> getAllValueList() {
+    public LinkedList<JSONToken> getAllValueList() {
         // add Value-List of Hash-JSONKey
         LinkedList<JSONToken> valueList = new LinkedList<>();
-        LinkedList<JSONToken> allKeyHashList = (LinkedList<JSONToken>) this.getAllKeyHashList();
+        LinkedList<JSONToken> allKeyHashList = this.getAllKeyHashList();
         while(!allKeyHashList.isEmpty()) {
             valueList.addAll(this.getValues(allKeyHashList.remove().getValue().to_s()));
         }
@@ -208,8 +210,8 @@ public class JSONPicker<T> implements Cloneable {
      *
      * @return All Value Hashed List
      */
-    public List<JSONToken> getAllValueHashList() {
-        LinkedList<JSONToken> allValueList = (LinkedList<JSONToken>) this.getAllValueList();
+    public LinkedList<JSONToken> getAllValueHashList() {
+        LinkedList<JSONToken> allValueList = this.getAllValueList();
         LinkedList<JSONToken> valueHashList = new LinkedList<>();
         HashSet<String> hashSet = this.getAllValueHashSet();
         Iterator<String> iterator = hashSet.iterator();
@@ -232,7 +234,7 @@ public class JSONPicker<T> implements Cloneable {
      * @return All Value HashSet
      */
     public HashSet<String> getAllValueHashSet() {
-        LinkedList<JSONToken> allValueList = (LinkedList<JSONToken>) this.getAllValueList();
+        LinkedList<JSONToken> allValueList = this.getAllValueList();
         LinkedList<String> strAllValueList = new LinkedList<>();
         while (!allValueList.isEmpty()) {
             strAllValueList.push(allValueList.remove().getValue().to_s());
@@ -303,7 +305,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param tokenList JSON Token List
      * @return Matched JSONValue List
      */
-    protected List<JSONToken> getValues(final String key, LinkedList<JSONToken> tokenList) {
+    protected LinkedList<JSONToken> getValues(final String key, LinkedList<JSONToken> tokenList) {
         LinkedList<JSONToken> outList = new LinkedList<>();
         JSONToken token;
         final int size = tokenList.size();
@@ -347,7 +349,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param key
      * @return
      */
-    public List<JSONToken> getValues(final String key) {
+    public LinkedList<JSONToken> getValues(final String key) {
         LinkedList<JSONToken> tokenList = (LinkedList<JSONToken>) this.tokenList.clone();
         return this.getValues(key, tokenList);
     }
@@ -357,8 +359,8 @@ public class JSONPicker<T> implements Cloneable {
      * @param keyList
      * @return
      */
-    public List<JSONToken> getValues(final LinkedList<String> keyList) {
-        LinkedList<JSONToken> jsonValueList = (LinkedList<JSONToken>) this.getValues(keyList.remove());
+    public LinkedList<JSONToken> getValues(final LinkedList<String> keyList) {
+        LinkedList<JSONToken> jsonValueList = this.getValues(keyList.remove());
         while (!keyList.isEmpty()) {
             String key = keyList.remove();
             LinkedList<JSONToken> tmpJsonValueList = new LinkedList<>();
@@ -378,7 +380,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param keys
      * @return
      */
-    public List<JSONToken> getValues(final String... keys) {
+    public LinkedList<JSONToken> getValues(final String... keys) {
         LinkedList<String> keyList = new LinkedList<>();
         for(String key: keys) {
             keyList.add(key);
@@ -446,7 +448,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param key
      * @return
      */
-    public List<JSONToken> searchValues(final String key) {
+    public LinkedList<JSONToken> searchValues(final String key) {
         return this.getValues(key);
     }
 
@@ -455,7 +457,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param keyList
      * @return
      */
-    public List<JSONToken> searchValues(final LinkedList<String> keyList) {
+    public LinkedList<JSONToken> searchValues(final LinkedList<String> keyList) {
         return this.getValues(keyList);
     }
 
@@ -464,7 +466,7 @@ public class JSONPicker<T> implements Cloneable {
      * @param keys
      * @return
      */
-    public List<JSONToken> searchValues(final String... keys) {
+    public LinkedList<JSONToken> searchValues(final String... keys) {
         return this.getValues(keys);
     }
 

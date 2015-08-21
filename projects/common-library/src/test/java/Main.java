@@ -5,6 +5,7 @@ public class Main {
         ShowSample showSample = new ShowSample();
         //showSample.debugRingBuffer();
         //showSample.debugJSONTokenListBuilder();
-        showSample.debugJSONPicker();
+        //showSample.debugJSONPicker();
+        showSample.debugJSONAnalyzer();
     }
 }

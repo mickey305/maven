@@ -34,7 +34,7 @@ dependencies {
 # History
 
 ### common-library
-##### 0.0.2
+##### 0.0.2 - 0.0.3
 * java version - jdk8.
 * Bugfix - RingBuffer class.
 * JSON analysis libs added.

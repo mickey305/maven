@@ -1,0 +1,26 @@
+#!/bin/sh
+
+CURRENT_PATH=$(cd $(dirname $0); pwd)
+FILE_TRAVIS=".travis.yml"
+
+FILE_GROOVY_TRAVIS=".groovy-travis.yml"
+FILE_ANDROID_TRAVIS=".android-travis.yml"
+
+
+copyToTarget () {
+				cat $CURRENT_PATH/$1 > $CURRENT_PATH/$FILE_TRAVIS
+}
+
+if [ $# -ne 1 ]; then
+				echo "Stopped!" 1>&2
+				exit 1;
+fi
+
+case $1 in
+"android") copyToTarget $FILE_ANDROID_TRAVIS;;
+"groovy") copyToTarget $FILE_GROOVY_TRAVIS;;
+*)
+echo "not found argument: $1" 1>&2
+exit 1
+;;
+esac

@@ -33,6 +33,13 @@ dependencies {
 
 # History
 
+### android-common-library
+##### 0.0.1
+* java version - jdk7 on the dalvik.
+* android API higher than 19 (Kitkat).
+* same v0.0.3 of the common-library.
+* gradle code: `compile 'com.mickey305:android-common-library:0.0.1'`
+
 ### common-library
 ##### 0.0.2 - 0.0.3
 * java version - jdk8.

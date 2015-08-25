@@ -10,9 +10,11 @@ android:
     - android-19
     - platform-tools
     - extra-android-support
+    - extra-android-m2repository
   licenses:
     - 'android-sdk-preview-license-52d11cd2'
     - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
     - '.*intel.+'
 branches:
   only:

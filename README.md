@@ -33,12 +33,42 @@ dependencies {
 
 # History
 
+### android-extension-library
+##### 0.0.1
+* Java version - jdk7.
+* android API: from 19 to 23.
+* Timer - Related Class on Android System.
+* may launch the Class(e.g. Activity, Service or BroadcastReceiver) or subclasses of those classes.
+* gradle code: `compile 'com.mickey305:android-extension-library:0.0.1'`
+* e.g. register Activity Class at 17:17:00
+```java
+  int id = 0;
+  // default timezone - Asia/Tokyo (+9:00)
+  MultipleScheduler ms = new MultipleScheduler(getApplicationContext());
+
+  try {
+      ms.setByTime(TestActivity.class, id, 17, 17, 0);
+  } catch (LaunchClassTypeException e) {
+      e.printStackTrace();
+  }
+```
+* e.g. cancel Activity Class - launch
+```java
+  try {
+     ms.cancel(TestActivity.class, id);
+  } catch (LaunchClassTypeException e) {
+     e.printStackTrace();
+  }
+```
+* [detail][android-extension-0.0.1]
+
 ### android-common-library
 ##### 0.0.1
 * java version - jdk7 on the dalvik.
 * android API higher than 19 (Kitkat).
 * same v0.0.3 of the common-library.
 * gradle code: `compile 'com.mickey305:android-common-library:0.0.1'`
+* [detail][android-common-0.0.1]
 
 ### common-library
 ##### 0.0.2 - 0.0.3
@@ -61,5 +91,7 @@ dependencies {
 [gradle-user-guide]: http://www.gradle.org/docs/current/userguide/userguide.html
 [gradle-dependency-management-guide]: http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-[common-0.0.1]: projects/common-library/detail-markdown/0.0.1.md
-[common-0.0.2]: projects/common-library/detail-markdown/0.0.2.md
+[common-0.0.1]: projects/documents/common-library/0.0.1.md
+[common-0.0.2]: projects/documents/common-library/0.0.2.md
+[android-common-0.0.1]: projects/documents/android-common-library/0.0.1.md
+[android-extension-0.0.1]: projects/documents/android-extension-library/0.0.1.md

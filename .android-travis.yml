@@ -21,4 +21,4 @@ branches:
     - gh-pages
 # before_install:
 #   - android list sdk --no-ui --all -extended
-script: ./android_commons_test.sh
+script: ./android_test.sh

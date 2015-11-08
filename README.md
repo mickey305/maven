@@ -91,7 +91,7 @@ dependencies {
 [gradle-user-guide]: http://www.gradle.org/docs/current/userguide/userguide.html
 [gradle-dependency-management-guide]: http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-[common-0.0.1]: projects/documents/common-library/0.0.1.md
-[common-0.0.2]: projects/documents/common-library/0.0.2.md
-[android-common-0.0.1]: projects/documents/android-common-library/0.0.1.md
-[android-extension-0.0.1]: projects/documents/android-extension-library/0.0.1.md
+[common-0.0.1]: documents/common-library/0.0.1.md
+[common-0.0.2]: documents/common-library/0.0.2.md
+[android-common-0.0.1]: documents/android-common-library/0.0.1.md
+[android-extension-0.0.1]: documents/android-extension-library/0.0.1.md

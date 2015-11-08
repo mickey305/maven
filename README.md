@@ -40,8 +40,11 @@ dependencies {
 * Timer - Related Class on Android System.
 * may launch the Class(e.g. Activity, Service or BroadcastReceiver) or subclasses of those classes.
 * gradle code: `compile 'com.mickey305:android-extension-library:0.0.1'`
-* e.g. register Activity Class at 17:17:00
+* [detail document here][android-extension-0.0.1]
+* example code
 ```java
+  /* register Activity Class at 17:17:00 */
+
   int id = 0;
   // default timezone - Asia/Tokyo (+9:00)
   MultipleScheduler ms = new MultipleScheduler(getApplicationContext());
@@ -52,15 +55,15 @@ dependencies {
       e.printStackTrace();
   }
 ```
-* e.g. cancel Activity Class - launch
 ```java
+  /* cancel Activity Class - launch */
+
   try {
      ms.cancel(TestActivity.class, id);
   } catch (LaunchClassTypeException e) {
      e.printStackTrace();
   }
 ```
-* [detail][android-extension-0.0.1]
 
 ### android-common-library
 ##### 0.0.1
@@ -68,7 +71,7 @@ dependencies {
 * android API higher than 19 (Kitkat).
 * same v0.0.3 of the common-library.
 * gradle code: `compile 'com.mickey305:android-common-library:0.0.1'`
-* [detail][android-common-0.0.1]
+* [detail document here][android-common-0.0.1]
 
 ### common-library
 ##### 0.0.2 - 0.0.3
@@ -76,14 +79,14 @@ dependencies {
 * Bugfix - RingBuffer class.
 * JSON analysis libs added.
 * gradle code: `compile 'com.mickey305:common-library:0.0.2'`
-* [detail][common-0.0.2]
+* [detail document here][common-0.0.2]
 
 ##### 0.0.1
 * java version  - higher than jdk7.
 * First release.
 * RingBuffer class added.
 * gradle code: `compile 'com.mickey305:common-library:0.0.1'`
-* [detail][common-0.0.1]
+* [detail document here][common-0.0.1]
 
 
 

@@ -3,6 +3,6 @@ branches:
   only:
     - gh-pages
 
-script: ./commons_test.sh
+script: ./.bin/commons_test.sh
 jdk:
   - oraclejdk8

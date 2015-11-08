@@ -3,8 +3,9 @@
 CURRENT_PATH=$(cd $(dirname $0); pwd)
 FILE_TRAVIS=".travis.yml"
 
-FILE_GROOVY_TRAVIS=".groovy-travis.yml"
-FILE_ANDROID_TRAVIS=".android-travis.yml"
+CONTENTS_PATH=".bin"
+FILE_GROOVY_TRAVIS="$CONTENTS_PATH/.groovy-travis.yml"
+FILE_ANDROID_TRAVIS="$CONTENTS_PATH/.android-travis.yml"
 
 
 copyToTarget () {

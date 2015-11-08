@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>com.mickey305</groupId>
-  <artifactId>android-common-library</artifactId>
+  <artifactId>android-extension-library</artifactId>
   <version>0.0.1</version>
   <versioning>
     <versions>

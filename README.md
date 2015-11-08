@@ -27,13 +27,21 @@ dependencies {
 }
 ```
 
-### Gradle's useful links
+### !["icon"](ic_gradle.png "icon") Gradle's useful links
 * [Gradle's User Guide][gradle-user-guide]
 * [Gradle's Dependency Management Guide][gradle-dependency-management-guide]
 
 # History
 
-### android-extension-library
+### !["icon"](ic_droid.png "icon") android-common-library
+##### 0.0.1
+* java version - jdk7 on the dalvik.
+* android API higher than 19 (Kitkat).
+* same v0.0.3 of the common-library.
+* gradle code: `compile 'com.mickey305:android-common-library:0.0.1'`
+* [detail document here][android-common-0.0.1]
+
+### !["icon"](ic_droid.png "icon") android-extension-library
 ##### 0.0.1
 * Java version - jdk7.
 * android API: from 19 to 23.
@@ -65,15 +73,7 @@ dependencies {
   }
 ```
 
-### android-common-library
-##### 0.0.1
-* java version - jdk7 on the dalvik.
-* android API higher than 19 (Kitkat).
-* same v0.0.3 of the common-library.
-* gradle code: `compile 'com.mickey305:android-common-library:0.0.1'`
-* [detail document here][android-common-0.0.1]
-
-### common-library
+### !["icon"](ic_java.png "icon") common-library
 ##### 0.0.2 - 0.0.3
 * java version - jdk8.
 * Bugfix - RingBuffer class.
